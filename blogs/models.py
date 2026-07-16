@@ -14,8 +14,8 @@ class Category(models.Model):
     def __str__(self):
         return self.category_name
 STATUS_CHOICES = (
-    ("draft","Draft"),
-    ("published","Published")
+    ("Draft","Draft"),
+    ("Published","Published")
 )
 
 class Blog(models.Model):
@@ -26,9 +26,9 @@ class Blog(models.Model):
     featured_image = models.ImageField(upload_to='uploads/%Y/%m/%d')
     short_description = models.TextField(max_length=500)
     blog_body = models.TextField(max_length=2000) 
-    status = models.CharField(max_length=20,choices=STATUS_CHOICES,default="draft")
+    status = models.CharField(max_length=20,choices=STATUS_CHOICES,default="Draft")
     is_featured = models.BooleanField(default=False)
-    created_at = models.DateTimeFiel~d(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     
     def __str__(self):
